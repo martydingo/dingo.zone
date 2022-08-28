@@ -1,6 +1,11 @@
 @import '_variables.css';
 @import '_syntax.css';
 
+@font-face {
+  font-family: Montserrat;
+  src: url(/fonts/montserrat.woff2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +28,7 @@ body {
   text-align: center;
   background-color: $page-color;
   color: mix($text-color, $page-color, 90%);
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.8;
@@ -42,10 +47,10 @@ body {
   width: 90%;
   text-align: left;
   @media (min-width: $mid) {
-    width: 600px;
+    width: 600;
   };
   @media (min-width: $wide) {
-    width: 700px;
+    width: 900px;
   };
 }
 
@@ -147,8 +152,8 @@ a:focus {
 
 code {
   font-size: 0.8em;
-  background-color: mix($text-color,$accent-color, 80%);
-  color: rgb(42, 65, 77);
+  background-color: #002b36 ;
+  color: #eee8d5;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 6px;
@@ -170,6 +175,7 @@ pre {
   overflow: auto;
   border-radius: 6px;
   code {
+    background-color: transparent;
     border-style: none;
     padding-top: 0;
     padding-bottom: 0;

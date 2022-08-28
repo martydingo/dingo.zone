@@ -1,5 +1,10 @@
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const markdown = require("markdown-it")({
+  html: true,
+  breaks: true,
+  linkify: true,
+});
 
 
 module.exports = function(config) {
@@ -13,6 +18,9 @@ module.exports = function(config) {
   // Add some utility filters
   config.addFilter("squash", require("./src/utils/filters/squash.js") );
   config.addFilter("dateDisplay", require("./src/utils/filters/date.js") );
+  config.addFilter("markdown", function (rawString) {
+    return markdown.render(rawString);
+  });
 
 
   // add support for syntax highlighting
@@ -35,6 +43,7 @@ module.exports = function(config) {
 
   // pass some assets right through
   config.addPassthroughCopy("./src/site/images");
+  config.addPassthroughCopy("./src/site/fonts");
 
   // make the seed target act like prod
   env = (env=="seed") ? "prod" : env;
