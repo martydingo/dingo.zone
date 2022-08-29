@@ -51,7 +51,7 @@ module.exports = function(config) {
   return {
     dir: {
       input: "src/site",
-      output: "dist",
+      output: "/www/eleventyone-dingo.zone",
       data: `_data/${env}`
     },
     templateFormats : ["njk", "md", "11ty.js"],
